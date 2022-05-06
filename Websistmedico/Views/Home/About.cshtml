@@ -1,0 +1,40 @@
+﻿ @using (Html.BeginForm("About", "Home", FormMethod.Post))
+ {
+
+
+    <br />
+    <table>
+
+        <tr>
+            <td style="margin-right:5px" class="form-control">Médicos</td>
+
+            <td style="margin-right:5px" class="form-control"> @Html.DropDownList("dbmedico", (IEnumerable<SelectListItem>)ViewBag.medico, new { @onclick = "opcionx(this)" }) </td>
+            <td style="margin:5px" class="form-control"><input type="text" id="nombre" name="nombre" style="width : 150px; height : 25px; margin-right:70px;left:auto" /> </td>
+            <td style="margin:5px" class="form-control"><input type="text" id="ap" name="ap" style="width : 150px; height : 25px; margin-right:70px;left:auto" /> </td>
+            <td class="form-control">Fecha</td>
+            <td style="margin:5px" class="form-control"><input type="date" id="fecha" name="fecha" style="width : 150px; height : 25px; margin-right:70px;left:auto" /> </td>
+            <td class="form-control"> Hora desde</td>
+            <td style="margin:5px" class="form-control"><input type="number" id="horad" name="horad" class="form-control" style="width : 100px; height : 25px; margin-right:25px;left:auto" /> </td>
+            <td class="form-control"> Hora hasta</td>
+            <td class="form-control"><input type="number" id="horah" name="horah" class="form-control" style="width : 100px; height : 25px; margin-right:25px;left:auto" /> </td>
+
+        </tr>
+
+    </table>
+    <input type="submit" value="Grabar" class="btn btn-primary " />
+ }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+            function opcionx(ddl)
+            {
+                var valor = ddl.value;
+                var texto = ddl.options[ddl.selectedIndex].innerHTML;
+
+                $('#nombre').val(texto);
+                $('#ap').val(valor);
+
+            }
+
+</script>
+
